@@ -1,0 +1,9 @@
+numpy
+pandas
+seaborn
+-e . 
+# Adding -e . to a requirements.txt file tells pip to install the current directory as an 
+# editable package during the installation process.When you run pip install
+#  -r requirements.txt, pip reads -e . and immediately looks for a setup.py (or pyproject.toml) in
+# that same folder to build and install your local project.q
+

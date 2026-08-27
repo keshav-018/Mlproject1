@@ -2,6 +2,8 @@
 __pycache__/
 *.py[codz]
 *$py.class
+menv/
+.DS_Store
 
 # C extensions
 *.so
@@ -156,6 +158,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+menv/
 
 # Spyder project settings
 .spyderproject
