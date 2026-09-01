@@ -151,6 +151,7 @@ activemq-data/
 
 # Environments
 .artifacts
+*.csv
 .env
 .envrc
 .venv
