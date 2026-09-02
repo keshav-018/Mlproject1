@@ -18,10 +18,6 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_message
+#to run this file write python3 -m src.exception in terminal 
 
-if __name__ == "__main__":
-    try:
-        a = 1/0
-    except Exception as e:
-        logging.info("Divide by 0 error")
-        raise CustomException(e, sys)
+
