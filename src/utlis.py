@@ -34,9 +34,6 @@ def evaluate_model(X_train, y_train, X_test, y_test, models, params):
             )
 
             gs.fit(X_train, y_train)
-            print("\nModel:", model_name)
-            print("Best Parameters:", gs.best_params_)
-            print("Best CV Score:", gs.best_score_)
 
             model.set_params(**gs.best_params_)
             model.fit(X_train, y_train)
