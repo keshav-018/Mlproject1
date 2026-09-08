@@ -2,6 +2,7 @@ from flask import Flask , request , render_template
 import numpy as np 
 import pandas as pd
 from src.pipeline.predict_pipeline import CustomData , PredictPipeline
+from src.utlis import load_object
 
 from sklearn.preprocessing import StandardScaler
 application = Flask(__name__)
@@ -15,7 +16,11 @@ def index():
 @app.route('/predictdata', methods=['GET', 'POST'])
 def predict_datapoint():
     if request.method == "GET":
-        return render_template('home.html')
+        model_report = load_object("artifacts/model_report.pkl")
+        return render_template(
+            'home.html',
+            model_report=model_report
+        )
     else:
         data = CustomData(
             gender=request.form.get('gender'),
@@ -32,7 +37,9 @@ def predict_datapoint():
 
         predict_pipeline = PredictPipeline()
         results = predict_pipeline.predict(pred_df)
-        return render_template('home.html', results=results[0])
+        model_report = load_object("artifacts/model_report.pkl")
+
+        return render_template('home.html', results=results[0], model_report=model_report)
 
 
 if __name__ == "__main__":
